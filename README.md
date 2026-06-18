@@ -1,16 +1,30 @@
-# jfs_ecommerce
+# JFS Technologies - Flutter Technical Assessment
+### Product Listing & Cart Application
 
-A jfs project.
+A production-ready Flutter application built using **Clean Architecture** principles and the **BLoC State Management** pattern. The application handles secure mock authentication, remote product streaming from a REST API, reactive cart handling with local persistence, global dark mode switching, custom asset typography (*Outfit* font family), and dedicated validation unit tests.
 
-## Getting Started
+---
 
-This project is a starting point for a Flutter application.
+## 🚀 Setup Instructions
 
-A few resources to get you started if this is your first Flutter project:
+Follow these instructions to set up and run the application locally on your machine:
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Prerequisites
+* Ensure you have the stable channel of the **Flutter SDK** installed.
+* Make sure a mobile device emulator/simulator or physical testing device is properly configured and connected.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+### Steps to Run
+1. **Clone the Repository:**
+   ```bash
+   git clone 
+   cd jfs_ecommerce
+2. **Install Dependencies:**
+   ```bash
+   flutter pub get
+3. **Launch the Application:**
+   ```bash
+   flutter run
+4. **Run the Unit Tests:**
+   ```bash
+   flutter test
+   
