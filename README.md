@@ -16,8 +16,8 @@ Follow these instructions to set up and run the application locally on your mach
 ### Steps to Run
 1. **Clone the Repository:**
    ```bash
-   git clone 
-   cd jfs_ecommerce
+   git clone https://github.com/WidgetTreeDev/jfs_ecom.git
+   cd jfs_ecom
 2. **Install Dependencies:**
    ```bash
    flutter pub get
