@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'package:jfs_ecommerce/core/theme/widget/theme_switcher_button.dart';
+import 'package:jfs_ecommerce/core/utils/validators.dart';
 import 'package:lottie/lottie.dart';
 import '../../../../core/router/app_router.dart';
 import '../widgets/custom_text_field.dart';
@@ -30,9 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
 
       if (mounted) {
         setState(() => _isLoading = false);
-        ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text('Login Successful.')),
-        );
+        ScaffoldMessenger.of(
+          context,
+        ).showSnackBar(const SnackBar(content: Text('Login Successful.')));
         context.go(AppRouter.productList);
       }
     }
@@ -86,7 +87,9 @@ class _LoginScreenState extends State<LoginScreen> {
                           Text(
                             'Sign in to explore trending products',
                             style: theme.textTheme.bodyMedium?.copyWith(
-                              color: isDark ? Colors.grey[400] : Colors.grey[600],
+                              color: isDark
+                                  ? Colors.grey[400]
+                                  : Colors.grey[600],
                             ),
                             textAlign: TextAlign.center,
                           ),
@@ -96,15 +99,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             hintText: 'Email Address',
                             prefixIcon: Icons.email_outlined,
                             validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Email required';
-                              }
-                              if (!RegExp(
-                                r'^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$',
-                              ).hasMatch(value)) {
-                                return 'Enter a valid email address';
-                              }
-                              return null;
+                              return Validators.validateEmail(value);
                             },
                           ),
                           const SizedBox(height: 14),
@@ -114,13 +109,7 @@ class _LoginScreenState extends State<LoginScreen> {
                             prefixIcon: Icons.lock_outline,
                             isPassword: true,
                             validator: (value) {
-                              if (value == null || value.isEmpty) {
-                                return 'Password required';
-                              }
-                              if (value.length < 6) {
-                                return 'Password must be at least 6 characters';
-                              }
-                              return null;
+                              return Validators.validatePassword(value);
                             },
                           ),
                           const SizedBox(height: 4),

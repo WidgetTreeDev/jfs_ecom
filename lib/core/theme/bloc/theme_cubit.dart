@@ -7,8 +7,8 @@ class ThemeCubit extends Cubit<ThemeMode> {
     _loadTheme();
   }
   void _loadTheme() {
-    final authBox = Hive.box('auth_box');
-    final String? themeString = authBox.get('themeMode');
+    final settingsBox = Hive.box('settings_box');
+    final String? themeString = settingsBox.get('themeMode');
 
     if (themeString == 'light') {
       emit(ThemeMode.light);
@@ -22,7 +22,7 @@ class ThemeCubit extends Cubit<ThemeMode> {
     final newMode = isDark ? ThemeMode.dark : ThemeMode.light;
     emit(newMode);
 
-    final authBox = Hive.box('auth_box');
-    await authBox.put('themeMode', isDark ? 'dark' : 'light');
+    final settingsBox = Hive.box('settings_box');
+    await settingsBox.put('themeMode', isDark ? 'dark' : 'light');
   }
 }
